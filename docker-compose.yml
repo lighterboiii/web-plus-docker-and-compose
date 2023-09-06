@@ -1,0 +1,41 @@
+version: "3"
+services:
+  backend:
+    container_name: kupipodariday-backend
+    build: ./backend
+    env_file: .env
+    restart: "unless-stopped"
+    ports:
+      - "3000:3000"
+    networks:
+      - network
+      - database-network
+    links:
+      - database
+    depends_on:
+      - database
+  frontend:
+    container_name: kupipodariday-frontend
+    build: ./frontend
+    ports:
+      - "8081:80"
+    networks:
+      - network
+    restart: "unless-stopped"   
+  database:
+    container_name: kupipodariday-postgres
+    image: "postgres:12"
+    networks:
+      - database-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - volume:/var/lib/postgresql/data
+    env_file: .env
+    restart: unless-stopped   
+networks:
+  network:
+    driver: bridge
+  database-network: 
+    driver: bridge
+    internal: true
