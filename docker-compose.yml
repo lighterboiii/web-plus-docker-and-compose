@@ -1,8 +1,11 @@
 version: "3"
 services:
+
   backend:
     container_name: kupipodariday-backend
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     env_file: .env
     restart: "unless-stopped"
     ports:
@@ -14,14 +17,18 @@ services:
       - database
     depends_on:
       - database
+
   frontend:
     container_name: kupipodariday-frontend
-    build: ./frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "8081:80"
     networks:
       - network
     restart: "unless-stopped"   
+
   database:
     container_name: kupipodariday-postgres
     image: "postgres:12"
@@ -33,6 +40,10 @@ services:
       - volume:/var/lib/postgresql/data
     env_file: .env
     restart: unless-stopped   
+volumes:
+  volume:
+    driver: local    
+
 networks:
   network:
     driver: bridge
