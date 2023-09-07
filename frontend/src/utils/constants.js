@@ -26,3 +26,4 @@ export const makeRightDeclension = (count, txt, cases = [2, 0, 1, 1, 1, 2]) =>
   ];
 
 export const priceArr = [100, 300, 500, 1000, 3000];
+ 
