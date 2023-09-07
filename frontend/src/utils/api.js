@@ -16,6 +16,7 @@ const headersWithAuthorizeFn = () => ({
 
 export const registerUser = (userData) => {
   return fetch(`${URL}/signup/`, {
+    mode: 'no-cors',
     method: "POST",
     headers: headersWithContentType,
     body: JSON.stringify(userData),
@@ -24,6 +25,7 @@ export const registerUser = (userData) => {
 
 export const loginUser = (username, password) => {
   return fetch(`${URL}/signin/`, {
+    mode: 'no-cors',
     method: "POST",
     headers: headersWithContentType,
     body: JSON.stringify({ username, password }),
@@ -49,6 +51,7 @@ export const refreshAndSet = (method, contextSetter) => {
 
 export const getOwnUser = () => {
   return fetch(`${URL}/users/me/`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -64,6 +67,7 @@ export const refreshUser = (contextSetter) => {
 
 export const updateProfile = (user) => {
   return fetch(`${URL}/users/me/`, {
+    mode: 'no-cors',
     method: "PATCH",
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(user),
@@ -72,6 +76,7 @@ export const updateProfile = (user) => {
 
 export const getCards = (page = 1) => {
   return fetch(`${URL}/wishes/`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -79,6 +84,7 @@ export const getCards = (page = 1) => {
 
 export const getOwnWishes = () => {
   return fetch(`${URL}/users/me/wishes`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -86,6 +92,7 @@ export const getOwnWishes = () => {
 
 export const getAnotherUserWishes = (username) => {
   return fetch(`${URL}/users/${username}/wishes`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -93,6 +100,7 @@ export const getAnotherUserWishes = (username) => {
 
 export const getAnotherUser = (username) => {
   return fetch(`${URL}/users/${username}`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -100,6 +108,7 @@ export const getAnotherUser = (username) => {
 
 export const queryUser = (query) => {
   return fetch(`${URL}/users/find`, {
+    mode: 'no-cors',
     method: "POST",
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify({ query }),
@@ -108,6 +117,7 @@ export const queryUser = (query) => {
 
 export const removeWish = (id) => {
   return fetch(`${URL}/wishes/${id}`, {
+    mode: 'no-cors',
     method: "DELETE",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -115,6 +125,7 @@ export const removeWish = (id) => {
 
 export const addOffer = (offer) => {
   return fetch(`${URL}/offers`, {
+    mode: 'no-cors',
     method: "POST",
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(offer),
@@ -123,6 +134,7 @@ export const addOffer = (offer) => {
 
 export const getTopCards = () => {
   return fetch(`${URL}/wishes/top`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -130,6 +142,7 @@ export const getTopCards = () => {
 
 export const getLastCards = (page = 1) => {
   return fetch(`${URL}/wishes/last`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -137,6 +150,7 @@ export const getLastCards = (page = 1) => {
 
 export const getCard = (id) => {
   return fetch(`${URL}/wishes/${id}`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -144,6 +158,7 @@ export const getCard = (id) => {
 
 export const createCard = (wish) => {
   return fetch(`${URL}/wishes`, {
+    mode: 'no-cors',
     method: "POST",
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(wish),
@@ -152,6 +167,7 @@ export const createCard = (wish) => {
 
 export const updateCard = (card, id) => {
   return fetch(`${URL}/wishes/${id}`, {
+    mode: 'no-cors',
     method: "PATCH",
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(card),
@@ -160,6 +176,7 @@ export const updateCard = (card, id) => {
 
 export const copyWish = (id) => {
   return fetch(`${URL}/wishes/${id}/copy`, {
+    mode: 'no-cors',
     method: "POST",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -167,6 +184,7 @@ export const copyWish = (id) => {
 
 export const removeCard = (id) => {
   return fetch(`${URL}/wishes/${id}`, {
+    mode: 'no-cors',
     method: "DELETE",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -174,6 +192,7 @@ export const removeCard = (id) => {
 
 export const addCollection = (data) => {
   return fetch(`${URL}/wishlistlists`, {
+    mode: 'no-cors',
     method: "POST",
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(data),
@@ -182,6 +201,7 @@ export const addCollection = (data) => {
 
 export const getCollections = () => {
   return fetch(`${URL}/wishlistlists`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -189,6 +209,7 @@ export const getCollections = () => {
 
 export const getCollection = (id) => {
   return fetch(`${URL}/wishlistlists/${id}`, {
+    mode: 'no-cors',
     method: "GET",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
@@ -196,6 +217,7 @@ export const getCollection = (id) => {
 
 export const deleteCollection = (id) => {
   return fetch(`${URL}/wishlistlists/${id}`, {
+    mode: 'no-cors',
     method: "DELETE",
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
