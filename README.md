@@ -6,8 +6,7 @@ Frontend https://kpd.baumtrok.nomoredomainsicu.ru
 <br>
 Backend https://api.kpd.baumtrok.nomoredomainsicu.ru
 
-### Данные для авторизации: 
-<br>
+### Данные для авторизации:
 username: TestUser
 <br>
 password: testpassword
